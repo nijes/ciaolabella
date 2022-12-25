@@ -1,0 +1,3473 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 11,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": false,
+      "title": "New link",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 38,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 12,
+            "w": 8,
+            "x": 0,
+            "y": 1
+          },
+          "id": 40,
+          "options": {
+            "barRadius": 0,
+            "barWidth": 0.97,
+            "groupWidth": 0.7,
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true
+            },
+            "orientation": "auto",
+            "showValue": "never",
+            "stacking": "none",
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            },
+            "xTickLabelRotation": 0,
+            "xTickLabelSpacing": 0
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Total.aggregate([{\"$unwind\":\"$values\"},{\"$group\":{\"_id\":{\"gender\":\"$values.user_gender\"},\"login\":{\"$sum\":{\"$toInt\":\"$values.login\"}},\"logout\":{\"$sum\":{\"$toInt\":\"$values.logout\"}},\"menu_nolabel\":{\"$sum\":{\"$toInt\":\"$values.menu_nolabel\"}},\"menu_eco1\":{\"$sum\":{\"$toInt\":\"$values.menu_eco1\"}},\"menu_eco2\":{\"$sum\":{\"$toInt\":\"$values.menu_eco2\"}},\"menu_lesswaste\":{\"$sum\":{\"$toInt\":\"$values.menu_lesswaste\"}},\"ecopoint1_click\":{\"$sum\":{\"$toInt\":\"$values.ecopoint1_click\"}},\"ecopoint2_click\":{\"$sum\":{\"$toInt\":\"$values.ecopoint2_click\"}},\"lesswaste_click\":{\"$sum\":{\"$toInt\":\"$values.lesswaste_click\"}},\"nolabel_search\":{\"$sum\":{\"$toInt\":\"$values.nolabel_search\"}},\"nolabel_click\":{\"$sum\":{\"$toInt\":\"$values.nolabel_click\"}}}}])",
+              "query": "db.Total.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $group: { _id: { gender: \"$values.user_gender\" }, \r\n              login: { \"$sum\": { $toInt: \"$values.login\" } },\r\n              logout: { \"$sum\": { $toInt: \"$values.logout\" } },\r\n              menu_nolabel: { \"$sum\": { $toInt: \"$values.menu_nolabel\" } },\r\n              menu_eco1: { \"$sum\": { $toInt: \"$values.menu_eco1\" } },\r\n              menu_eco2: { \"$sum\": { $toInt: \"$values.menu_eco2\" } },\r\n              menu_lesswaste: { \"$sum\": { $toInt: \"$values.menu_lesswaste\" } },\r\n              ecopoint1_click: { \"$sum\": { $toInt: \"$values.ecopoint1_click\" } },\r\n              ecopoint2_click: { \"$sum\": { $toInt: \"$values.ecopoint2_click\" } },\r\n              lesswaste_click: { \"$sum\": { $toInt: \"$values.lesswaste_click\" } },\r\n              nolabel_search: { \"$sum\": { $toInt: \"$values.nolabel_search\" } },\r\n              nolabel_click: { \"$sum\": { $toInt: \"$values.nolabel_click\" } },\r\n            } \r\n  }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "성별에 따른 각 메뉴 이용 횟수",
+          "type": "barchart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 12,
+            "w": 16,
+            "x": 8,
+            "y": 1
+          },
+          "id": 41,
+          "options": {
+            "barRadius": 0,
+            "barWidth": 0.97,
+            "groupWidth": 0.7,
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true
+            },
+            "orientation": "auto",
+            "showValue": "never",
+            "stacking": "none",
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            },
+            "xTickLabelRotation": 0,
+            "xTickLabelSpacing": 0
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Total.aggregate([{\"$unwind\":\"$values\"},{\"$group\":{\"_id\":{\"age\":\"$values.user_age\"},\"login\":{\"$sum\":{\"$toInt\":\"$values.login\"}},\"logout\":{\"$sum\":{\"$toInt\":\"$values.logout\"}},\"menu_nolabel\":{\"$sum\":{\"$toInt\":\"$values.menu_nolabel\"}},\"menu_eco1\":{\"$sum\":{\"$toInt\":\"$values.menu_eco1\"}},\"menu_eco2\":{\"$sum\":{\"$toInt\":\"$values.menu_eco2\"}},\"menu_lesswaste\":{\"$sum\":{\"$toInt\":\"$values.menu_lesswaste\"}},\"ecopoint1_click\":{\"$sum\":{\"$toInt\":\"$values.ecopoint1_click\"}},\"ecopoint2_click\":{\"$sum\":{\"$toInt\":\"$values.ecopoint2_click\"}},\"lesswaste_click\":{\"$sum\":{\"$toInt\":\"$values.lesswaste_click\"}},\"nolabel_search\":{\"$sum\":{\"$toInt\":\"$values.nolabel_search\"}},\"nolabel_click\":{\"$sum\":{\"$toInt\":\"$values.nolabel_click\"}}}},{\"$sort\":{\"_id.age\":1}}])",
+              "query": "db.Total.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $group: { _id: { age: \"$values.user_age\" }, \r\n              login: { \"$sum\": { $toInt: \"$values.login\" } },\r\n              logout: { \"$sum\": { $toInt: \"$values.logout\" } },\r\n              menu_nolabel: { \"$sum\": { $toInt: \"$values.menu_nolabel\" } },\r\n              menu_eco1: { \"$sum\": { $toInt: \"$values.menu_eco1\" } },\r\n              menu_eco2: { \"$sum\": { $toInt: \"$values.menu_eco2\" } },\r\n              menu_lesswaste: { \"$sum\": { $toInt: \"$values.menu_lesswaste\" } },\r\n              ecopoint1_click: { \"$sum\": { $toInt: \"$values.ecopoint1_click\" } },\r\n              ecopoint2_click: { \"$sum\": { $toInt: \"$values.ecopoint2_click\" } },\r\n              lesswaste_click: { \"$sum\": { $toInt: \"$values.lesswaste_click\" } },\r\n              nolabel_search: { \"$sum\": { $toInt: \"$values.nolabel_search\" } },\r\n              nolabel_click: { \"$sum\": { $toInt: \"$values.nolabel_click\" } },\r\n            } \r\n  },\r\n  { $sort : { \"_id.age\": 1 } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "연령에 따른 각 메뉴 이용 횟수",
+          "type": "barchart"
+        }
+      ],
+      "title": "Common Statistic",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 14,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-RdYlGr"
+              },
+              "custom": {
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1
+              },
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 9,
+            "w": 24,
+            "x": 0,
+            "y": 2
+          },
+          "id": 1,
+          "options": {
+            "bucketOffset": 0,
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "key": "Q-47b32142-4b85-42b0-a1b9-5c19d785e05f-0",
+              "parsedQuery": "db.Inout.aggregate([{\"$unwind\":\"$values\"},{\"$project\":{\"_id\":0,\"stay_time\":\"$values.stay_time\"}}])",
+              "query": "db.Inout.aggregate([\r\n  { \"$unwind\": \"$values\" },\r\n  { \"$project\": {\"_id\":0, \"stay_time\":\"$values.stay_time\"} }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "체류시간",
+          "type": "histogram"
+        }
+      ],
+      "title": "StayTime",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 2
+      },
+      "id": 43,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "ecopoint1"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-red",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "ecopoint2"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-purple",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 11,
+            "w": 5,
+            "x": 0,
+            "y": 3
+          },
+          "id": 48,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Total.aggregate([{\"$unwind\":\"$values\"},{\"$addFields\":{\"key\":1}},{\"$group\":{\"_id\":{\"key\":\"$key\"},\"ecopoint1\":{\"$sum\":{\"$toInt\":\"$values.save_ecopoint1\"}},\"ecopoint2\":{\"$sum\":{\"$toInt\":\"$values.save_ecopoint2\"}}}},{\"$project\":{\"_id.key\":0}}])",
+              "query": "db.Total.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $addFields: { key: 1} },\r\n  { $group: { _id: { key: \"$key\" }, \r\n              ecopoint1: { \"$sum\": { $toInt: \"$values.save_ecopoint1\" } },\r\n              ecopoint2: { \"$sum\": { $toInt: \"$values.save_ecopoint2\" } }\r\n            } \r\n  },\r\n  { $project: { \"_id.key\": 0 } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "ecopoint 종류에 따른 적립 비율",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 70
+                  },
+                  {
+                    "color": "red",
+                    "value": 85
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 11,
+            "w": 6,
+            "x": 5,
+            "y": 3
+          },
+          "id": 45,
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [],
+              "fields": "",
+              "values": true
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Total.aggregate([{\"$unwind\":\"$values\"},{\"$addFields\":{\"ecopoint\":{\"$sum\":[{\"$toInt\":\"$values.save_ecopoint1\"},{\"$toInt\":\"$values.save_ecopoint2\"}]}}},{\"$group\":{\"_id\":{\"gender\":\"$values.user_gender\"},\"ecopoint\":{\"$sum\":\"$ecopoint\"}}},{\"$sort\":{\"_id.gender\":1}}])",
+              "query": "db.Total.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $addFields: { ecopoint: { $sum: [ { $toInt: \"$values.save_ecopoint1\" }, { $toInt: \"$values.save_ecopoint2\" } ] } } },\r\n  { $group: { _id: { gender: \"$values.user_gender\" }, \r\n              ecopoint: { \"$sum\": \"$ecopoint\" }\r\n            } \r\n  },\r\n  { $sort : { \"_id.gender\": 1 } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "성별에 따른 일주일 간 적립 에코포인트",
+          "type": "gauge"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "percentage",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "orange",
+                    "value": 70
+                  },
+                  {
+                    "color": "red",
+                    "value": 85
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 11,
+            "w": 13,
+            "x": 11,
+            "y": 3
+          },
+          "id": 46,
+          "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [],
+              "fields": "",
+              "values": true
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Total.aggregate([{\"$unwind\":\"$values\"},{\"$addFields\":{\"ecopoint\":{\"$sum\":[{\"$toInt\":\"$values.save_ecopoint1\"},{\"$toInt\":\"$values.save_ecopoint2\"}]}}},{\"$group\":{\"_id\":{\"age\":\"$values.user_age\"},\"ecopoint\":{\"$sum\":\"$ecopoint\"}}},{\"$sort\":{\"_id.age\":1}}])",
+              "query": "db.Total.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $addFields: { ecopoint: { $sum: [ { $toInt: \"$values.save_ecopoint1\" }, { $toInt: \"$values.save_ecopoint2\" } ] } } },\r\n  { $group: { _id: { age: \"$values.user_age\" }, \r\n              ecopoint: { \"$sum\": \"$ecopoint\" }\r\n            } \r\n  },\r\n  { $sort : { \"_id.age\": 1 } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "성별에 따른 일주일 간 적립 에코포인트",
+          "type": "gauge"
+        }
+      ],
+      "title": "Ecopoint",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 18,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 12,
+            "w": 7,
+            "x": 0,
+            "y": 4
+          },
+          "id": 20,
+          "options": {
+            "barRadius": 0,
+            "barWidth": 0.97,
+            "groupWidth": 0.7,
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "orientation": "auto",
+            "showValue": "never",
+            "stacking": "normal",
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            },
+            "xTickLabelRotation": 0,
+            "xTickLabelSpacing": 0
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\",\"gender\":\"$values.user_gender\"},\"total\":{\"$sum\":\"$values.count\"}}},{\"$addFields\":{\"M_count\":{\"$cond\":{\"if\":{\"$eq\":[\"M\",\"$_id.gender\"]},\"then\":\"$total\",\"else\":0}}}},{\"$addFields\":{\"W_count\":{\"$cond\":{\"if\":{\"$eq\":[\"W\",\"$_id.gender\"]},\"then\":\"$total\",\"else\":0}}}},{\"$addFields\":{\"none_count\":{\"$cond\":{\"if\":{\"$eq\":[\"none\",\"$_id.gender\"]},\"then\":\"$total\",\"else\":0}}}},{\"$group\":{\"_id\":\"$_id.radius\",\"M\":{\"$sum\":\"$M_count\"},\"W\":{\"$sum\":\"$W_count\"},\"unregister\":{\"$sum\":\"$none_count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\", gender:\"$values.user_gender\" }, \r\n              \"total\": {\"$sum\": \"$values.count\"} } },\r\n  { $addFields: { M_count: { $cond: { if: { $eq: [\"M\", \"$_id.gender\"] }, then: \"$total\", else: 0 } } } },\r\n  { $addFields: { W_count: { $cond: { if: { $eq: [\"W\", \"$_id.gender\"] }, then: \"$total\", else: 0 } } } },\r\n  { $addFields: { none_count: { $cond: { if: { $eq: [\"none\", \"$_id.gender\"] }, then: \"$total\", else: 0 } } } },\r\n  { $group: { \"_id\": \"$_id.radius\", \"M\":{\"$sum\": \"$M_count\"}, \"W\":{\"$sum\": \"$W_count\"}, \"unregister\":{\"$sum\": \"$none_count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "Lesswaste 거리별 남녀 이용 통계",
+          "type": "barchart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 12,
+            "w": 8,
+            "x": 7,
+            "y": 4
+          },
+          "id": 21,
+          "options": {
+            "barRadius": 0,
+            "barWidth": 0.97,
+            "groupWidth": 0.7,
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "orientation": "horizontal",
+            "showValue": "never",
+            "stacking": "normal",
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            },
+            "xTickLabelRotation": 0,
+            "xTickLabelSpacing": 0
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([\n  { $unwind: \"$values\" },\n  { $group: { \"_id\": { radius: \"$values.radius_km\", age:\"$values.user_age\" }, \n              \"total\": {\"$sum\": \"$values.count\"} } },\n  { $addFields: { 10_count: { $cond: { if: { $eq: [10, \"$_id.age\"] }, then: \"$total\", else: 0 } } } },\n  { $addFields: { 20_count: { $cond: { if: { $eq: [20, \"$_id.age\"] }, then: \"$total\", else: 0 } } } },\n  { $addFields: { 30_count: { $cond: { if: { $eq: [30, \"$_id.age\"] }, then: \"$total\", else: 0 } } } },\n  { $addFields: { 40_count: { $cond: { if: { $eq: [40, \"$_id.age\"] }, then: \"$total\", else: 0 } } } },\n  { $addFields: { 50_count: { $cond: { if: { $eq: [50, \"$_id.age\"] }, then: \"$total\", else: 0 } } } },\n  { $addFields: { 60_count: { $cond: { if: { $eq: [60, \"$_id.age\"] }, then: \"$total\", else: 0 } } } },\n  { $addFields: { none_count: { $cond: { if: { $eq: [99, \"$_id.age\"] }, then: \"$total\", else: 0 } } } },\n  { $group: { \"_id\": \"$_id.radius\", \"10\":{\"$sum\": \"$10_count\"}, \"20\":{\"$sum\": \"$20_count\"}, \"30\":{\"$sum\": \"$30_count\"}, \"40\":{\"$sum\": \"$40_count\"}, \"50\":{\"$sum\": \"$50_count\"}, \"60\":{\"$sum\": \"$60_count\"}, \"unregister\":{\"$sum\": \"$none_count\"} } },\n  { $sort: { \"_id\" : 1 } },\n  { $addFields: { \"_id\"  : { $concat: [{$toString: \"$_id\"}, \"km\"] } } }\n])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\", age:\"$values.user_age\" }, \r\n              \"total\": {\"$sum\": \"$values.count\"} } },\r\n  { $addFields: { 10_count: { $cond: { if: { $eq: [10, \"$_id.age\"] }, then: \"$total\", else: 0 } } } },\r\n  { $addFields: { 20_count: { $cond: { if: { $eq: [20, \"$_id.age\"] }, then: \"$total\", else: 0 } } } },\r\n  { $addFields: { 30_count: { $cond: { if: { $eq: [30, \"$_id.age\"] }, then: \"$total\", else: 0 } } } },\r\n  { $addFields: { 40_count: { $cond: { if: { $eq: [40, \"$_id.age\"] }, then: \"$total\", else: 0 } } } },\r\n  { $addFields: { 50_count: { $cond: { if: { $eq: [50, \"$_id.age\"] }, then: \"$total\", else: 0 } } } },\r\n  { $addFields: { 60_count: { $cond: { if: { $eq: [60, \"$_id.age\"] }, then: \"$total\", else: 0 } } } },\r\n  { $addFields: { none_count: { $cond: { if: { $eq: [99, \"$_id.age\"] }, then: \"$total\", else: 0 } } } },\r\n  { $group: { \"_id\": \"$_id.radius\", \"10\":{\"$sum\": \"$10_count\"}, \"20\":{\"$sum\": \"$20_count\"}, \"30\":{\"$sum\": \"$30_count\"}, \"40\":{\"$sum\": \"$40_count\"}, \"50\":{\"$sum\": \"$50_count\"}, \"60\":{\"$sum\": \"$60_count\"}, \"unregister\":{\"$sum\": \"$none_count\"} } },\r\n  { $sort: { \"_id\" : 1 } },\r\n  { $addFields: { \"_id\"  : { $concat: [{$toString: \"$_id\"}, \"km\"] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "Lesswaste 거리별 연령 이용 통계",
+          "type": "barchart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "5km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count",
+                      "5km"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "10km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "15km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "20km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 15,
+            "y": 4
+          },
+          "id": 23,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": false,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_region\":\"서울특별시\"}},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id.radius\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_region\": \"서울특별시\" }},\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\"}, \"count\": {\"$sum\": \"$values.count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id.radius\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "서울특별시 Lesswaste 검색 거리 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "5km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count",
+                      "5km"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "10km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "15km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "20km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 18,
+            "y": 4
+          },
+          "id": 25,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": false,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_region\":\"강원도\"}},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id.radius\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_region\": \"강원도\" }},\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\"}, \"count\": {\"$sum\": \"$values.count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id.radius\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "강원도 Lesswaste 검색 거리 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "5km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count",
+                      "5km"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "10km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "15km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "20km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 21,
+            "y": 4
+          },
+          "id": 35,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": false,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_region\":\"경기도\"}},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id.radius\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_region\": \"경기도\" }},\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\"}, \"count\": {\"$sum\": \"$values.count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id.radius\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "경기도 Lesswaste 검색 거리 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "5km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count",
+                      "5km"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "10km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "15km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "20km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 15,
+            "y": 10
+          },
+          "id": 34,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": false,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_region\":\"경상도\"}},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id.radius\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_region\": \"경상도\" }},\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\"}, \"count\": {\"$sum\": \"$values.count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id.radius\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "경상도 Lesswaste 검색 거리 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "5km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count",
+                      "5km"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "10km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "15km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "20km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 18,
+            "y": 10
+          },
+          "id": 24,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": false,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_region\":\"광주광역시\"}},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id.radius\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_region\": \"광주광역시\" }},\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\"}, \"count\": {\"$sum\": \"$values.count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id.radius\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "광주광역시 Lesswaste 검색 거리 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "5km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count",
+                      "5km"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "10km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "15km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "20km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 21,
+            "y": 10
+          },
+          "id": 36,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": false,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_region\":\"대구광역시\"}},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id.radius\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_region\": \"대구광역시\" }},\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\"}, \"count\": {\"$sum\": \"$values.count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id.radius\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "대구광역시 Lesswaste 검색 거리 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "5km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count",
+                      "5km"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "10km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "15km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "20km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 0,
+            "y": 16
+          },
+          "id": 26,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": false,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_region\":\"대전광역시\"}},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id.radius\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_region\": \"대전광역시\" }},\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\"}, \"count\": {\"$sum\": \"$values.count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id.radius\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "대전광역시 Lesswaste 검색 거리 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "5km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count",
+                      "5km"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "10km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "15km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "20km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 3,
+            "y": 16
+          },
+          "id": 27,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": false,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_region\":\"부산광역시\"}},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id.radius\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_region\": \"부산광역시\" }},\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\"}, \"count\": {\"$sum\": \"$values.count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id.radius\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "부산광역시 Lesswaste 검색 거리 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "5km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count",
+                      "5km"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "10km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "15km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "20km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 6,
+            "y": 16
+          },
+          "id": 28,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": false,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_region\":\"세종특별자치시\"}},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id.radius\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_region\": \"세종특별자치시\" }},\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\"}, \"count\": {\"$sum\": \"$values.count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id.radius\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "세종특별자치시 Lesswaste 검색 거리 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "5km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count",
+                      "5km"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "10km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "15km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "20km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 9,
+            "y": 16
+          },
+          "id": 29,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": false,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_region\":\"울산광역시\"}},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id.radius\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_region\": \"울산광역시\" }},\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\"}, \"count\": {\"$sum\": \"$values.count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id.radius\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "울산광역시 Lesswaste 검색 거리 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "5km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count",
+                      "5km"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "10km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "15km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "20km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 12,
+            "y": 16
+          },
+          "id": 30,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": false,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_region\":\"인천광역시\"}},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id.radius\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_region\": \"인천광역시\" }},\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\"}, \"count\": {\"$sum\": \"$values.count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id.radius\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "인천광역시 Lesswaste 검색 거리 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "5km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count",
+                      "5km"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "10km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "15km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "20km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 15,
+            "y": 16
+          },
+          "id": 31,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": false,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_region\":\"전라도\"}},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id.radius\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_region\": \"전라도\" }},\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\"}, \"count\": {\"$sum\": \"$values.count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id.radius\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "전라도 Lesswaste 검색 거리 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "5km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count",
+                      "5km"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "10km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "15km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "20km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 18,
+            "y": 16
+          },
+          "id": 33,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": false,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_region\":\"제주특별자치도\"}},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id.radius\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_region\": \"제주특별자치도\" }},\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\"}, \"count\": {\"$sum\": \"$values.count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id.radius\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "제주특별자치도 Lesswaste 검색 거리 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "5km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "light-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count",
+                      "5km"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "10km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "15km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "semi-dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "20km"
+                },
+                "properties": [
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "dark-green",
+                      "mode": "fixed"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 21,
+            "y": 16
+          },
+          "id": 32,
+          "options": {
+            "displayLabels": [
+              "percent",
+              "value",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": false,
+              "values": []
+            },
+            "pieType": "pie",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.Lesswaste.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_region\":\"충청도\"}},{\"$group\":{\"_id\":{\"radius\":\"$values.radius_km\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"_id\":1}},{\"$addFields\":{\"_id\":{\"$concat\":[{\"$toString\":\"$_id.radius\"},\"km\"]}}}])",
+              "query": "db.Lesswaste.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_region\": \"충청도\" }},\r\n  { $group: { \"_id\": { radius: \"$values.radius_km\"}, \"count\": {\"$sum\": \"$values.count\"} } },\r\n  { $sort : {_id: 1} },\r\n  { $addFields: { _id: {$concat: [{ $toString: \"$_id.radius\" }, 'km'] } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "충청도 Lesswaste 검색 거리 통계",
+          "type": "piechart"
+        }
+      ],
+      "title": "Lesswaste",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 16,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 0,
+            "y": 5
+          },
+          "id": 3,
+          "options": {
+            "displayLabels": [
+              "value",
+              "percent",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "values": []
+            },
+            "pieType": "donut",
+            "reduceOptions": {
+              "calcs": [
+                "changeCount"
+              ],
+              "fields": "/^count$/",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.NolabelClick.aggregate([{\"$unwind\":\"$values\"},{\"$group\":{\"_id\":\"$values.user_gender\",\"count\":{\"$sum\":\"$values.count\"}}}])",
+              "query": "db.NolabelClick.aggregate([\r\n  { \"$unwind\": \"$values\" },\r\n  { \"$group\": { \"_id\": \"$values.user_gender\", \"count\": { \"$sum\": \"$values.count\" } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "nolabel이용자 성별 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                }
+              },
+              "mappings": []
+            },
+            "overrides": [
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "count"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 6,
+            "y": 5
+          },
+          "id": 5,
+          "options": {
+            "displayLabels": [
+              "value",
+              "percent",
+              "name"
+            ],
+            "legend": {
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true,
+              "values": []
+            },
+            "pieType": "donut",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "/^count$/",
+              "values": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.NolabelClick.aggregate([{\"$unwind\":\"$values\"},{\"$addFields\":{\"user_age\":{\"$toString\":\"$values.user_age\"}}},{\"$group\":{\"_id\":\"$user_age\",\"count\":{\"$sum\":\"$values.count\"}}}])",
+              "query": "db.NolabelClick.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $addFields: { user_age: { $toString: \"$values.user_age\" } } },\r\n  { $group: { \"_id\": \"$user_age\", \"count\": { \"$sum\": \"$values.count\" } } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "nolabel이용자 연령 통계",
+          "type": "piechart"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "fillOpacity": 80,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineWidth": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "short"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "_id"
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": true,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 5
+          },
+          "id": 7,
+          "options": {
+            "barRadius": 0,
+            "barWidth": 0.97,
+            "groupWidth": 0.7,
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "right",
+              "showLegend": true
+            },
+            "orientation": "auto",
+            "showValue": "never",
+            "stacking": "none",
+            "tooltip": {
+              "mode": "none",
+              "sort": "none"
+            },
+            "xField": "_id",
+            "xTickLabelRotation": 0,
+            "xTickLabelSpacing": 0
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.NolabelClick.aggregate([{\"$unwind\":\"$values\"},{\"$addFields\":{\"price\":{\"$floor\":{\"$multiply\":[\"$values.price_min\",0.005]}}}},{\"$addFields\":{\"price\":{\"$multiply\":[\"$price\",200]}}},{\"$group\":{\"_id\":{\"price\":\"$price\",\"gender\":\"$values.user_gender\"},\"total\":{\"$sum\":\"$values.count\"}}},{\"$addFields\":{\"M_count\":{\"$cond\":{\"if\":{\"$eq\":[\"M\",\"$_id.gender\"]},\"then\":\"$total\",\"else\":0}}}},{\"$addFields\":{\"W_count\":{\"$cond\":{\"if\":{\"$eq\":[\"W\",\"$_id.gender\"]},\"then\":\"$total\",\"else\":0}}}},{\"$addFields\":{\"none_count\":{\"$cond\":{\"if\":{\"$eq\":[\"none\",\"$_id.gender\"]},\"then\":\"$total\",\"else\":0}}}},{\"$group\":{\"_id\":\"$_id.price\",\"M_count\":{\"$sum\":\"$M_count\"},\"W_count\":{\"$sum\":\"$W_count\"},\"none_count\":{\"$sum\":\"$none_count\"}}},{\"$sort\":{\"_id\":1}}])",
+              "query": "db.NolabelClick.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $addFields: { price: { $floor: { $multiply: [\"$values.price_min\", 0.005] } } } },\r\n  { $addFields: { price: { $multiply: [\"$price\", 200] } } },\r\n  { $group: { \"_id\": { price: \"$price\", gender:\"$values.user_gender\" }, \r\n              \"total\": {\"$sum\": \"$values.count\"} } },\r\n  { $addFields: { M_count: { $cond: { if: { $eq: [\"M\", \"$_id.gender\"] }, then: \"$total\", else: 0 } } } },\r\n  { $addFields: { W_count: { $cond: { if: { $eq: [\"W\", \"$_id.gender\"] }, then: \"$total\", else: 0 } } } },\r\n  { $addFields: { none_count: { $cond: { if: { $eq: [\"none\", \"$_id.gender\"] }, then: \"$total\", else: 0 } } } },\r\n  { $group: { \"_id\": \"$_id.price\", \"M_count\":{\"$sum\": \"$M_count\"}, \"W_count\":{\"$sum\": \"$W_count\"}, \"none_count\":{\"$sum\": \"$none_count\"} } },\r\n  { $sort : {_id: 1} }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            }
+          ],
+          "title": "가격대별 검색이용 통계",
+          "transformations": [
+            {
+              "id": "calculateField",
+              "options": {
+                "mode": "reduceRow",
+                "reduce": {
+                  "include": [
+                    "M_count",
+                    "W_count",
+                    "none_count"
+                  ],
+                  "reducer": "sum"
+                },
+                "replaceFields": false
+              }
+            }
+          ],
+          "type": "barchart"
+        }
+      ],
+      "title": "NolabelClick",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 12,
+      "panels": [
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "displayMode": "auto",
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 12,
+            "w": 8,
+            "x": 0,
+            "y": 6
+          },
+          "id": 9,
+          "options": {
+            "footer": {
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.NolabelSearch.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_gender\":\"W\"}},{\"$group\":{\"_id\":{\"keyword\":\"$values.keyword\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"count\":-1}},{\"$limit\":10},{\"$addFields\":{\"W_rank\":\"$_id.keyword\"}},{\"$project\":{\"_id.keyword\":0,\"count\":0}}])",
+              "query": "db.NolabelSearch.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_gender\": \"W\" } },\r\n  { $group: { _id: { keyword: \"$values.keyword\" }, count: { $sum: \"$values.count\" } } },\r\n\t{ $sort: { count: -1 } },\r\n  { $limit: 10 },\r\n  { $addFields: { W_rank: \"$_id.keyword\" } },\r\n  { $project: { \"_id.keyword\":0, count:0 } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "hide": false,
+              "parsedQuery": "db.NolabelSearch.aggregate([{\"$unwind\":\"$values\"},{\"$match\":{\"values.user_gender\":\"M\"}},{\"$group\":{\"_id\":{\"keyword\":\"$values.keyword\"},\"count\":{\"$sum\":\"$values.count\"}}},{\"$sort\":{\"count\":-1}},{\"$limit\":10},{\"$addFields\":{\"M_rank\":\"$_id.keyword\"}},{\"$project\":{\"_id.keyword\":0,\"count\":0}}])",
+              "query": "db.NolabelSearch.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_gender\": \"M\" } },\r\n  { $group: { _id: { keyword: \"$values.keyword\" }, count: { $sum: \"$values.count\" } } },\r\n\t{ $sort: { count: -1 } },\r\n  { $limit: 10 },\r\n  { $addFields: { M_rank: \"$_id.keyword\" } },\r\n  { $project: { \"_id.keyword\":0, count:0 } }\r\n])",
+              "queryType": "query",
+              "refId": "B"
+            }
+          ],
+          "title": "성별에 따른 검색어 순위",
+          "transformations": [
+            {
+              "id": "concatenate",
+              "options": {}
+            }
+          ],
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "grafana-mongodb-datasource",
+            "uid": "mTdwX3c4z"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "custom": {
+                "align": "auto",
+                "displayMode": "auto",
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 12,
+            "w": 16,
+            "x": 8,
+            "y": 6
+          },
+          "id": 10,
+          "options": {
+            "footer": {
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true
+          },
+          "pluginVersion": "9.3.2-45365",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "parsedQuery": "db.NolabelSearch.aggregate([\n  { $unwind: \"$values\" },\n  { $match: { \"values.user_age\": 10 } },\n  { $group: { _id: { keyword: \"$values.keyword\" }, count: { $sum: \"$values.count\" } } },\n\t{ $sort: { count: -1 } },\n  { $limit: 10 },\n  { $addFields: { 10_rank: \"$_id.keyword\" } },\n  { $project: { \"_id.keyword\":0, count:0 } }\n])",
+              "query": "db.NolabelSearch.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_age\": 10 } },\r\n  { $group: { _id: { keyword: \"$values.keyword\" }, count: { $sum: \"$values.count\" } } },\r\n\t{ $sort: { count: -1 } },\r\n  { $limit: 10 },\r\n  { $addFields: { 10_rank: \"$_id.keyword\" } },\r\n  { $project: { \"_id.keyword\":0, count:0 } }\r\n])",
+              "queryType": "query",
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "hide": false,
+              "parsedQuery": "db.NolabelSearch.aggregate([\n  { $unwind: \"$values\" },\n  { $match: { \"values.user_age\": 20 } },\n  { $group: { _id: { keyword: \"$values.keyword\" }, count: { $sum: \"$values.count\" } } },\n\t{ $sort: { count: -1 } },\n  { $limit: 10 },\n  { $addFields: { 20_rank: \"$_id.keyword\" } },\n  { $project: { \"_id.keyword\":0, count:0 } }\n])",
+              "query": "db.NolabelSearch.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_age\": 20 } },\r\n  { $group: { _id: { keyword: \"$values.keyword\" }, count: { $sum: \"$values.count\" } } },\r\n\t{ $sort: { count: -1 } },\r\n  { $limit: 10 },\r\n  { $addFields: { 20_rank: \"$_id.keyword\" } },\r\n  { $project: { \"_id.keyword\":0, count:0 } }\r\n])",
+              "queryType": "query",
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "hide": false,
+              "parsedQuery": "db.NolabelSearch.aggregate([\n  { $unwind: \"$values\" },\n  { $match: { \"values.user_age\": 30 } },\n  { $group: { _id: { keyword: \"$values.keyword\" }, count: { $sum: \"$values.count\" } } },\n\t{ $sort: { count: -1 } },\n  { $limit: 10 },\n  { $addFields: { 30_rank: \"$_id.keyword\" } },\n  { $project: { \"_id.keyword\":0, count:0 } }\n])",
+              "query": "db.NolabelSearch.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_age\": 30 } },\r\n  { $group: { _id: { keyword: \"$values.keyword\" }, count: { $sum: \"$values.count\" } } },\r\n\t{ $sort: { count: -1 } },\r\n  { $limit: 10 },\r\n  { $addFields: { 30_rank: \"$_id.keyword\" } },\r\n  { $project: { \"_id.keyword\":0, count:0 } }\r\n])",
+              "queryType": "query",
+              "refId": "C"
+            },
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "hide": false,
+              "parsedQuery": "db.NolabelSearch.aggregate([\n  { $unwind: \"$values\" },\n  { $match: { \"values.user_age\": 40 } },\n  { $group: { _id: { keyword: \"$values.keyword\" }, count: { $sum: \"$values.count\" } } },\n\t{ $sort: { count: -1 } },\n  { $limit: 10 },\n  { $addFields: { 40_rank: \"$_id.keyword\" } },\n  { $project: { \"_id.keyword\":0, count:0 } }\n])",
+              "query": "db.NolabelSearch.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_age\": 40 } },\r\n  { $group: { _id: { keyword: \"$values.keyword\" }, count: { $sum: \"$values.count\" } } },\r\n\t{ $sort: { count: -1 } },\r\n  { $limit: 10 },\r\n  { $addFields: { 40_rank: \"$_id.keyword\" } },\r\n  { $project: { \"_id.keyword\":0, count:0 } }\r\n])",
+              "queryType": "query",
+              "refId": "D"
+            },
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "hide": false,
+              "parsedQuery": "db.NolabelSearch.aggregate([\n  { $unwind: \"$values\" },\n  { $match: { \"values.user_age\": 50 } },\n  { $group: { _id: { keyword: \"$values.keyword\" }, count: { $sum: \"$values.count\" } } },\n\t{ $sort: { count: -1 } },\n  { $limit: 10 },\n  { $addFields: { 50_rank: \"$_id.keyword\" } },\n  { $project: { \"_id.keyword\":0, count:0 } }\n])",
+              "query": "db.NolabelSearch.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_age\": 50 } },\r\n  { $group: { _id: { keyword: \"$values.keyword\" }, count: { $sum: \"$values.count\" } } },\r\n\t{ $sort: { count: -1 } },\r\n  { $limit: 10 },\r\n  { $addFields: { 50_rank: \"$_id.keyword\" } },\r\n  { $project: { \"_id.keyword\":0, count:0 } }\r\n])",
+              "queryType": "query",
+              "refId": "E"
+            },
+            {
+              "datasource": {
+                "type": "grafana-mongodb-datasource",
+                "uid": "mTdwX3c4z"
+              },
+              "hide": false,
+              "parsedQuery": "db.NolabelSearch.aggregate([\n  { $unwind: \"$values\" },\n  { $match: { \"values.user_age\": 60 } },\n  { $group: { _id: { keyword: \"$values.keyword\" }, count: { $sum: \"$values.count\" } } },\n\t{ $sort: { count: -1 } },\n  { $limit: 10 },\n  { $addFields: { 60_rank: \"$_id.keyword\" } },\n  { $project: { \"_id.keyword\":0, count:0 } }\n])",
+              "query": "db.NolabelSearch.aggregate([\r\n  { $unwind: \"$values\" },\r\n  { $match: { \"values.user_age\": 60 } },\r\n  { $group: { _id: { keyword: \"$values.keyword\" }, count: { $sum: \"$values.count\" } } },\r\n\t{ $sort: { count: -1 } },\r\n  { $limit: 10 },\r\n  { $addFields: { 60_rank: \"$_id.keyword\" } },\r\n  { $project: { \"_id.keyword\":0, count:0 } }\r\n])",
+              "queryType": "query",
+              "refId": "F"
+            }
+          ],
+          "title": "연령에 따른 검색어 순위",
+          "transformations": [
+            {
+              "id": "concatenate",
+              "options": {}
+            }
+          ],
+          "type": "table"
+        }
+      ],
+      "title": "NolabelSearch",
+      "type": "row"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 37,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "6h"
+    ]
+  },
+  "timezone": "",
+  "title": "Ciaolabella_Dashboard",
+  "uid": "rERwdgtVk",
+  "version": 22,
+  "weekStart": ""
+}
