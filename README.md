@@ -2,7 +2,7 @@
 ## 라벨 여부 이미지 인식에 따른 에코포인트 적립 서비스 - 확장 데이터 파이프라인 구축
 >1차 프로젝트 기간 : 2022.08.18 ~ 2022.09.30<br>
 2차 프로젝트 기간 : 2022.10.12 ~ 2022.12.21<br>
-[서비스 페이지](https://)
+[서비스 페이지](https://ciaolabella.site/)
 
 기존 ciaolabella 서비스를 확장하여, 
 1) 유저 로그를 수집·집계·적재·시각화하는 파이프라인을 구축 
@@ -94,6 +94,21 @@
 
 <br>
 
+## 데이터 파이프라인 세부 기술
+
+* Kafka
+* [Hadoop-Cluster](https://nifty-aftershave-2ff.notion.site/Hadoop-Cluster-95eec50b9286468496e714d4cd47a339)
+* Spark
+* ElasticSearch
+* Airflow
+* [Redis-Cluster](https://www.notion.so/Redis-Cluster-5eb7f29f3bb743dd9697bac653033342)
+* MongoDB
+* [MySQL](https://nifty-aftershave-2ff.notion.site/MySQL-c9d3b42d69094b32b6945234bbcf12e2)
+* Docker
+* [Streamlit](https://nifty-aftershave-2ff.notion.site/streamlit-49168d2887cc4e67b4c5685594f056f4)
+* [Grafana](https://nifty-aftershave-2ff.notion.site/Grafana-a68970c0442e4ae6a02d6890b5d052ef)
+
+<br>
 
 ## 서비스 화면
 ### 인덱스 페이지

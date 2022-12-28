@@ -26,8 +26,7 @@ def predict():
         # print('from Django:',file_id, user_id, pic_time)
 
         ##### mongodb에서 원본 이미지 로드 후 모델 적용#####
-        # client = MongoClient("mongodb://127.0.0.1", 27017)
-        client = MongoClient("mongodb://admin:qwer1234@218.154.53.236", 27721)
+        client = MongoClient(MONGO_URL, MONGO_PORT)
         db = client['rawimg']
         fs = gridfs.GridFS(db)
         # 파일을 db에서 binary 형태로 로드
