@@ -96,13 +96,13 @@
 
 ## 데이터 파이프라인 세부 기술
 
-* Kafka
+* [Kafka](https://nifty-aftershave-2ff.notion.site/Kafka-feat-Zookeeper-d79fc79f27a849d29b379cbe9fdaae15)
 * [Hadoop-Cluster](https://nifty-aftershave-2ff.notion.site/Hadoop-Cluster-95eec50b9286468496e714d4cd47a339)
 * Spark
-* ElasticSearch
-* Airflow
+* [ElasticSearch](https://nifty-aftershave-2ff.notion.site/Elasticsearch-801c7d75f0c740db85c577003b1223c8)
+* [Airflow](https://nifty-aftershave-2ff.notion.site/Airflow-63bb5ca5ebff44489a05ce1936106c7f)
 * [Redis-Cluster](https://www.notion.so/Redis-Cluster-5eb7f29f3bb743dd9697bac653033342)
-* MongoDB
+* [MongoDB](https://nifty-aftershave-2ff.notion.site/MongoDB-43487fb47a9c49f788a2c4298442bc32)
 * [MySQL](https://nifty-aftershave-2ff.notion.site/MySQL-c9d3b42d69094b32b6945234bbcf12e2)
 * Docker
 * [Streamlit](https://nifty-aftershave-2ff.notion.site/streamlit-49168d2887cc4e67b4c5685594f056f4)
