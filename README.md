@@ -44,7 +44,7 @@
 ## 아키텍처 및 기술 스택
 
 ![차라라_아키텍처정의서](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbnHN5A%2FbtrUceYxRKX%2FrdwbcF5K70ug4KLEQPmktk%2Fimg.png)
-![차라라_노드분리도](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FLzwYo%2FbtrUfr3FIzB%2FncVH8O47CWbZTETzEdAHU0%2Fimg.png)
+![차라라_노드분리도](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FldPwu%2FbtrVU82k8LE%2Fe4wLGNhYsv52PoSZetgcBK%2Fimg.png)
 
 * AWS EC2 [free tier]
 * Ubuntu [20.04]
